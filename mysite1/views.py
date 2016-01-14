@@ -4,16 +4,18 @@ from django.template.loader import get_template
 from django.shortcuts import render_to_response
 import datetime
 import pymysql
+from django.db import connection
 
 
 def hello(request):
 
-
 #   return HttpResponse("Hello world")
 #获取一个数据库连接，注意如果是UTF-8类型的，需要制定数据库
+
     try:
-        conn=pymysql.connect(host='localhost',user='root',passwd='930623',db='test',port=3306,charset='utf8')
-        cur=conn.cursor()#获取一个游标
+        #conn=pymysql.connect(host='localhost',user='root',passwd='930623',db='test',port=3306,charset='utf8')
+        #cur=conn.cursor()#获取一个游标
+        cur=connection.cursor()
         cur.execute('select * from test.diannengbiao')
         data=cur.fetchall()
         for d in data :
