@@ -18,7 +18,7 @@ from django.contrib import admin
 from mysite1.views import hello, current_time, hours_ahead
 
 urlpatterns = [
-    #url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls),
     url(r'^hello/$',hello),
     url(r'^time/$',current_time),
     url(r'^time/plus/(\d{1,2})/$',hours_ahead),
